@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">DevMon</string>
     <string name="creature_number"># %1$03d</string>
+    <string name="monsters_egg">Ovo do Monstro</string>
+    <string name="youve_got_an_egg">Você possui um ovo</string>
+    <string name="click_to_hatch_it">Toque para choca-lo!</string>
+    <string name="creature_hatched">%1$s chocou!!</string>
+    <string name="creatures_image">%1$s\'s Image</string>
+    <string name="see_creature_in_list">Ver criatura na lista</string>
 </resources>

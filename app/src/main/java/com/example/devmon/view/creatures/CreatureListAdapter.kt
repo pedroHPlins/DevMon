@@ -1,4 +1,4 @@
-package com.example.devmon.view
+package com.example.devmon.view.creatures
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

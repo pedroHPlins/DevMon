@@ -1,4 +1,4 @@
-package com.example.devmon.view
+package com.example.devmon.view.binding_adapters
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
