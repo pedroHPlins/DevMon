@@ -1,32 +1,32 @@
 package com.example.devmon.view
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.devmon.R
+import com.example.devmon.databinding.CreaturesListItemBinding
 import com.example.devmon.model.domain.Creature
 
 class CreatureListAdapter(
     private val items: List<Creature>,
 ) : RecyclerView.Adapter<CreatureListAdapter.ViewHolder>() {
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(private val binding: CreaturesListItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bindView(item: Creature) {
-            val tvCreatureNumber = itemView.findViewById<TextView>(R.id.tvCreatureNumber)
-            val tvCreatureName = itemView.findViewById<TextView>(R.id.tvCreatureName)
+            binding.creature = item
 
-            tvCreatureNumber.text = item.number.toString()
-            tvCreatureName.text = item.name
+            val ivCreature = itemView.findViewById<ImageView>(R.id.ivCreature)
+            Glide.with(itemView.context).load(item.imageUrl).into(ivCreature)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.creatures_list_item, parent, false)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = CreaturesListItemBinding.inflate(layoutInflater, parent, false)
 
-        return ViewHolder(view)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

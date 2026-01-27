@@ -9,6 +9,10 @@ android {
     namespace = "com.example.devmon"
     compileSdk = 34
 
+    buildFeatures{
+        dataBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.devmon"
         minSdk = 24
@@ -46,6 +50,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    kapt("com.github.bumptech.glide:compiler:4.16.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
     implementation("androidx.hilt:hilt-navigation-fragment:1.2.0")
