@@ -1,11 +1,12 @@
-package com.example.devmon
+package com.example.devmon.view
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
+import com.example.devmon.R
+import com.example.devmon.viewmodel.NavigationViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.getValue
 
 @AndroidEntryPoint
 class NavigationActivity : AppCompatActivity() {
@@ -13,6 +14,7 @@ class NavigationActivity : AppCompatActivity() {
 
     private val navController by lazy {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
         navHostFragment.navController
     }
 
