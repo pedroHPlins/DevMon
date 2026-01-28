@@ -24,7 +24,7 @@ class CreatureAddedFragment : Fragment(){
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = CreatureAddedFragmentBinding.inflate(inflater, container, false)
+        binding = CreatureAddedFragmentBinding.inflate(layoutInflater, container, false)
 
         return binding.root
     }

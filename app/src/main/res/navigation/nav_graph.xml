@@ -33,6 +33,6 @@
         <argument
             android:name="creatureNumber"
             app:argType="integer" />
-    </fragment>"
+    </fragment>
 
 </navigation>

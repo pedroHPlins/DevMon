@@ -16,9 +16,6 @@ class CreatureListAdapter(
     inner class ViewHolder(private val binding: CreaturesListItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bindView(item: Creature) {
             binding.creature = item
-
-            val ivCreature = itemView.findViewById<ImageView>(R.id.ivCreature)
-            Glide.with(itemView.context).load(item.imageUrl).into(ivCreature)
         }
     }
 

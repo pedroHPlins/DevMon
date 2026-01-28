@@ -8,9 +8,9 @@ object ImageBindingAdapter {
     @JvmStatic
     @BindingAdapter("imageUrl")
 
-    fun loadImage(view: ImageView, url: String) {
-        if (url.isNotEmpty()) {
-            Glide.with(view.context).load(url)
+    fun loadImage(view: ImageView, url: String?) {
+        if (!url.isNullOrEmpty()) {
+            Glide.with(view.context).load(url).into(view)
         }
     }
 }
