@@ -11,11 +11,17 @@ import com.example.devmon.model.domain.Creature
 
 class CreatureListAdapter(
     private val items: List<Creature>,
+    private val listener: (Creature) -> Unit,
 ) : RecyclerView.Adapter<CreatureListAdapter.ViewHolder>() {
 
+
     inner class ViewHolder(private val binding: CreaturesListItemBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bindView(item: Creature) {
+        fun bindView(item: Creature, listener: (Creature) -> Unit) {
             binding.creature = item
+
+            itemView.setOnClickListener {
+                listener(item)
+            }
         }
     }
 
@@ -28,7 +34,7 @@ class CreatureListAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.bindView(item)
+        holder.bindView(item, listener)
     }
 
     override fun getItemCount() = items.count()

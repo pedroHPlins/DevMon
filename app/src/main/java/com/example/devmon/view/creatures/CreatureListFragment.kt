@@ -1,11 +1,13 @@
 package com.example.devmon.view.creatures
 
+import android.R.attr.action
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.devmon.R
@@ -30,7 +32,14 @@ class CreatureListFragment : Fragment() {
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         creaturesViewModel.creatures.observe(viewLifecycleOwner) {
-            recyclerView.adapter = CreatureListAdapter(it)
+            recyclerView.adapter = CreatureListAdapter(it){ creature ->
+                if(!creature.isKnown){
+                    return@CreatureListAdapter
+                }
+                val action = CreatureListFragmentDirections.creatureViewAction(creature.number)
+
+                findNavController().navigate(action)
+            }
         }
     }
 }
