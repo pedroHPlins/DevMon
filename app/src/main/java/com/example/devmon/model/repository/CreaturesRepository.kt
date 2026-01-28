@@ -1,12 +1,14 @@
 package com.example.devmon.model.repository
 
+import androidx.databinding.ObservableList
 import com.example.devmon.model.domain.Creature
+import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class CreaturesRepository @Inject constructor() {
-    val creatures: List<Creature>
+    val creatures: Observable<List<Creature>>
 
     init {
         val creature1 = Creature(1, "Java", "https://i.imgur.com/PHfd1h2.png")
@@ -18,17 +20,11 @@ class CreaturesRepository @Inject constructor() {
         val creature7 = Creature(7, "JavaScript", "https://i.imgur.com/WEKXaw3.png")
 
 
-        creatures = listOf(
-            creature1,
-            creature2,
-            creature3,
-            creature4,
-            creature5,
-            creature6,
-            creature7,
-        )
+        creatures = Observable.just(listOf(creature1, creature2, creature3, creature4, creature5, creature6, creature7))
     }
 
-    fun findCreature(number: Int) = creatures.find {it.number == number}
-
+    fun findCreature(number: Int): Observable<Creature> =
+        creatures.map {list ->
+            list.find { it.number == number }!!
+        }
 }

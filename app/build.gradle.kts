@@ -58,6 +58,7 @@ dependencies {
     implementation("androidx.hilt:hilt-navigation-fragment:1.2.0")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

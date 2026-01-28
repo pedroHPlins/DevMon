@@ -37,7 +37,6 @@ class CreatureListFragment : Fragment() {
                     return@CreatureListAdapter
                 }
                 val action = CreatureListFragmentDirections.creatureViewAction(creature.number)
-
                 findNavController().navigate(action)
             }
         }
