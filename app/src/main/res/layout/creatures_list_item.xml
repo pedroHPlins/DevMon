@@ -78,6 +78,7 @@
             <ImageView
                 android:id="@+id/ivCreature"
                 app:imageUrl="@{creature.imageUrl}"
+                app:enableSilhouette="@{!creature.isKnown}"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_marginTop="20dp"

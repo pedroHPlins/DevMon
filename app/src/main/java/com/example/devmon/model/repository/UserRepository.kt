@@ -1,5 +1,6 @@
 package com.example.devmon.model.repository
 
+import android.R.attr.name
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.devmon.model.domain.User
@@ -15,6 +16,14 @@ class UserRepository @Inject constructor(private val creaturesRepository : Creat
     private val _onChooseCreature = MutableLiveData<Creature>()
     val onChooseCreature: LiveData<Creature>
         get() = _onChooseCreature
+
+    val allCreatures
+        get() = creaturesRepository.creatures.map{
+            val isKnown = user.creatures.any{creatureOwnByUser -> creatureOwnByUser.number == it.number}
+            it.copy(name = if(isKnown) it.name else "?????",
+                isKnown = isKnown)
+        }
+
 
     fun chooseCreature(){
         if(!user.hasCreatureAvailable){
