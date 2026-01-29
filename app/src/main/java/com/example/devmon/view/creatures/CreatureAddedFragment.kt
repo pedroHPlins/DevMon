@@ -13,7 +13,6 @@ import com.example.devmon.databinding.CreatureAddedFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 import com.example.devmon.R
 import com.example.devmon.viewmodel.CreatureViewModel
-import com.example.devmon.viewmodel.CreaturesViewModel
 
 
 @AndroidEntryPoint
